@@ -1,29 +1,21 @@
 // window event listener for to start init function on window load
 window.addEventListener('load', init);
 
-// Global variables
-
-// Levels object
-const levels = {
-    easy: 5,
-    medium: 3,
-    hard: 2
-};
-
-// Change level variable
-const currentLevel = levels.medium;
-
-let time = currentLevel;
-let score = 0;
-let isPlaying;
-
 // DOM Elements
+const select = document.querySelector('#selectOp');
 const wordInput = document.querySelector('#word-input');
 const currentWord = document.querySelector('#current-word');
 const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
+
+// Global variables
+
+let currentLevel;
+let time;
+let score = 0;
+let isPlaying;
 
 // Array of words
 const words = [
@@ -42,7 +34,9 @@ const words = [
 // Initialise game
 function init(){
     // Show number of seconds in UI
-    seconds.innerHTML = currentLevel;
+    seconds.innerHTML = select.value;
+    // Assign select value to time variable
+    time = select.value;
     // Load word from array
     showWord(words);
     // Start matching on word input
@@ -52,6 +46,41 @@ function init(){
     // Check game status
     setInterval(checkStatus, 500);
 }
+
+// Select event listener
+select.addEventListener('change', selectLevel);
+
+// Select game level
+function selectLevel(){
+
+    switch(select.value){
+
+        // Legend
+        case "3":
+        currentLevel = 3;
+        break;
+
+        // Professional
+        case "4":
+        currentLevel = 4;
+        break;
+
+        // Intermediate
+        case "5":
+        currentLevel = 5;
+        break;
+
+        // Beginner
+        case "6":
+        currentLevel = 6;
+        break;
+    }
+
+    seconds.innerHTML = currentLevel;
+    time = currentLevel;
+    message.innerHTML = '';
+}
+
 
 // Pick and show random word
 function showWord(words){
@@ -115,8 +144,5 @@ function checkStatus(){
 }
 
 // ADD RANDOM WORD API..ANYTHING ELSE 
-
-// DROP DOWN TO CHOOSE LEVELS..SHOW THE SECONDS FOR EACH LEVEL
-// USING SELECT LIST..ADD EVENT LISTENER TO IT
 
 // LOCAL STORAGE TO STORE HIGH SCCORE AND REPLACE IT WHEN IT IS BEATEN

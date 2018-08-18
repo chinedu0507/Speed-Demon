@@ -16,16 +16,30 @@
         <!-- Word & Input -->
         <div class="row">
             <div class="col-md-6 mx-auto">
+
+                <!-- Choose game level -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                       <label class="input-group-text" >Choose game level</label>
+                    </div>
+                    <select class="custom-select" id="selectOp">
+                        <option selected value = "6">Beginner</option>
+                        <option value="5">Intermediate</option>
+                        <option value="4">Professional</option>
+                        <option value="3">Legend</option>
+                    </select>
+                </div>
+
                 <!-- mx-auto centers the column -->
-                <p class="lead">Type the word below within <span class="text-success" id="seconds">5</span> seconds:</p>
+                <p class="lead mt-3">Type the word below within <span class="text-success" id="seconds">5</span> seconds:</p>
 
                 <!-- display-2 sizes the text. The number varies from 1 to 6 -->
-                <h2 class="display-2 mb-5 text-center" id="current-word">hello</h2>
+                <h2 class="display-3 mb-5 text-center" id="current-word">hello</h2>
                 <input type="text" class="form-control form-control-lg" placeholder="Start typing..." id="word-input" autofocus>
-                <h4 class="mt-3" id="message"></h4>
+                <h4 class="mt-2" id="message"></h4>
 
                 <!-- Time & Score columns -->
-                <div class="row mt-5">
+                <div class="row mt-3">
                     <div class="col-md-6">
                         <h3>Time left:
                             <span id="time">0</span>
@@ -39,7 +53,7 @@
                 </div>
 
                 <!-- Instructions -->
-                <div class="row mt-5">
+                <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="card card-body bg-secondary text-white">
                             <h5>Instructions</h5>
@@ -51,16 +65,6 @@
         </div>
 
     </div>
-
-<!-- 
-    LATER ON EDIT THE SECTIONS 
-
-    THINK OF HOW TO MAKE THIS MY OWN -->
-
-    <!-- WHAT DOES mb-5 DO? -->
-
-    <!-- WHAT DOES mt-3 DO? -->
-
     <script src="app.js"></script>
 </body>
 </html>
